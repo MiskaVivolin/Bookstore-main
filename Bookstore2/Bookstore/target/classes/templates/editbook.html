@@ -1,0 +1,38 @@
+<DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"
+	th:href="@{css/bootstrap.min.css}" />
+	<title>editBook</title>
+	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+</head>
+<body>
+	<h1>Edit Book</h1>
+	<div>
+	<form th:object="${book}" th:action="@{/savebook}" action="#" method="post">
+			
+		<label  for="name">Author</label> <input type="text" th:field="*{author}"
+				id="author" placeholder="Author"> <span
+				th:if="${#fields.hasErrors('author')}" th:errors="*{author}"></span> <label
+				
+				for="title">Title</label> <input type="text" th:field="*{title}"
+				id="title" placeholder="Title"> <span
+				th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span> <label
+				
+				for="year">Year</label> <input type="text" th:field="*{year}"
+				id="year" placeholder="Year"> <span
+				th:if="${#fields.hasErrors('year')}" th:errors="*{year}"></span> <label
+				
+				for="isbn">ISBN</label> <input type="text" th:field="*{isbn}"
+				id="isbn" placeholder="ISBN"> <span
+				th:if="${#fields.hasErrors('isbn')}" th:errors="*{isbn}"></span> <input
+				
+				class="button button-success" type="submit" value="Save">
+				
+				<input type="hidden" id="id" th:field="*{id}">
+				
+		</form>
+	</div>
+	
+</body>
+</html>
